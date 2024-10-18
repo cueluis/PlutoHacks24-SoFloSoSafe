@@ -1,0 +1,17 @@
+{
+  "name": "plutohacks24-soflososafe",
+  "version": "1.0.0",
+  "description": "A project for PlutoHacks 2024.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "env": "^0.0.2",
+    "openai": "^4.68.1"
+  }
+}
