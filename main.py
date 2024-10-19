@@ -8,7 +8,11 @@ app = Flask(__name__)
 def main_app():
     return render_template('index.html')
 
-@app.route('/maps', methods=('GET', 'POST'))
+@app.route('/firstresponse')
+def firstresponse():
+    return render_template('firstresponse.html')
+
+@app.route('/map', methods=('GET', 'POST'))
 def mapping():
     global allWarnings
     allWarnings = ""
@@ -55,7 +59,7 @@ def mapping():
     soFloMap.get_root().height = "600px"
     iframe = soFloMap.get_root()._repr_html_()
 
-    return render_template_string(map.html, iframe=iframe, allWarnings = allWarnings,
+    return render_template('map.html', iframe=iframe, allWarnings = allWarnings,
     )
 
 if __name__ == '__main__':
