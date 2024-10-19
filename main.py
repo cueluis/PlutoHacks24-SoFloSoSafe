@@ -55,34 +55,7 @@ def mapping():
     soFloMap.get_root().height = "600px"
     iframe = soFloMap.get_root()._repr_html_()
 
-    return render_template_string(
-        """
-            <!DOCTYPE html>
-            <html>
-                <head></head>
-                <body>
-                    <h1>Using an iframe</h1>
-                    {{ iframe|safe }}
-                    <form action='{{url_for("mapping")}}' method="post" enctype="multipart/form-data">
-                        <label for="Location">Location:</label>
-                        <input type="text" id="location" name="fname" placeholder="location">
-                        <button type="submit">Search</button>
-                    </form>
-
-                    <form action='{{url_for("mapping")}}' method="post" enctype="multipart/form-data">
-                        <label for="items">Shortages? Where? </label>
-                        <input type="text" id="items" name="items" placeholder="shortage location">
-                        <label for="locart"> Please list what? </label>
-                        <input type="text" id="locart" name="locart" placeholder="items list">
-                        <button type="submit">List</button>
-                    </form>
-
-                    <p> {{ allWarnings|safe }} </p>
-                </body>
-            </html>
-        """,
-        iframe=iframe,
-        allWarnings = allWarnings,
+    return render_template_string(map.html, iframe=iframe, allWarnings = allWarnings,
     )
 
 if __name__ == '__main__':
