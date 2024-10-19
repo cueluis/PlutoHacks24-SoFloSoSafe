@@ -28,6 +28,7 @@
 
     <h1>SoFlo SoSafe</h1>
     <h2>Map</h2>
+    {{ iframe|safe }}
 
     <div id="root"></div>
     <script type="module" src="src/main.jsx"></script>
@@ -42,5 +43,20 @@
       providers, and a G for government assistance. This will be represented
       based on user suggestions so that it is more up to date.
     </p>
+
+    <form action='{{url_for("mapping")}}' method="post" enctype="multipart/form-data">
+        <label for="Location">Location:</label>
+        <input type="text" id="location" name="fname" placeholder="location">
+        <button type="submit">Search</button>
+    </form>
+
+    <form action='{{url_for("mapping")}}' method="post" enctype="multipart/form-data">
+        <label for="items">Shortages? Where? </label>
+        <input type="text" id="items" name="items" placeholder="shortage location">
+        <label for="locart"> Please list what? </label>
+        <input type="text" id="locart" name="locart" placeholder="items list">
+        <button type="submit">List</button>
+    </form>
+    <p> {{ allWarnings|safe }} </p>
   </body>
 </html>
